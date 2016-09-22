@@ -962,8 +962,8 @@ Un formulario contiene campos. Los tipos de campo incluyen:
 - Password box: producida por <input type="password">.
 - Radio Button: producida por <input type="radio">.
 - Checkbox: producida por <input type="checkbox">.
-- Selection: producida por <select> y <option>.
-- Text area: producida por <textarea>.
+- Selection: producida por select y option.
+- Text area: producida por text area.
 - Submit Button: producida por <input type="submit">.
 - Reset Button: producida por <input type="reset">.
 - Hidden Field: producida por <input type="hidden">.
