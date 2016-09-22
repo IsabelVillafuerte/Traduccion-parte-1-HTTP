@@ -958,16 +958,16 @@ La siguiente es una forma HTML de la muestra que se produce por la siguiente sec
 
 Un formulario contiene campos. Los tipos de campo incluyen:
 
-- Text box: producida por <input type="text">.
-- Password box: producida por <input type="password">.
-- Radio Button: producida por <input type="radio">.
-- Checkbox: producida por <input type="checkbox">.
-- Selection: producida por select y option.
+- Text box: producida por ```<input type="text">```.
+- Password box: producida por ```<input type="password">```.
+- Radio Button: producida por ```<input type="radio">```.
+- Checkbox: producida por ```<input type="checkbox">```.
+- Selection: producida por ```<select y option>```.
 - Text area: producida por text area.
-- Submit Button: producida por <input type="submit">.
-- Reset Button: producida por <input type="reset">.
-- Hidden Field: producida por <input type="hidden">.
-- Button: producida por <input type="button">.
+- Submit Button: producida por ```<input type="submit">```.
+- Reset Button: producida por ```<input type="reset">```.
+- Hidden Field: producida por ```<input type="hidden">```.
+- Button: producida por ```<input type="button">```.
 
 Cada campo tiene un nombre y puede tomar un determinado valor. Una vez que el cliente rellena los campos y pulsa el botón de enviar, el navegador recoge cada uno de los nombres y valores de los campos, ellos empaquetan en "name=valores pares", y concatena todos los campos juntos usando " &" como separador de campo. Esto se conoce como una cadena de consulta. Se enviará la cadena de consulta al servidor como parte de la solicitud.
 
@@ -977,7 +977,7 @@ Los caracteres especiales no están permitidos dentro de la cadena de consulta. 
 
 *`name=Peter+Lee&address=%23123+Happy+Ave&Language=C%2B%2B`*
 
-La cadena de consulta se puede enviar al servidor por medio de HTTP GET o el método de solicitud POST, que se especifica en el atributo <form>  "method".
+La cadena de consulta se puede enviar al servidor por medio de HTTP GET o el método de solicitud POST, que se especifica en el atributo form  "method".
 
 ```
 <form method="get|post" action="url">
@@ -1080,7 +1080,7 @@ Un URL no puede contener caracteres especiales, como blanco o '~'. Los caractere
 ``` http://host:port/path?request-parameters#nameAnchor ```
 
 - Los parámetros de la petición, en forma de nombre = valores pares, se separan de la URL por un '?'. Los name=value pairs están separados por una '&'.
-- Los #nameAnchor identifican un fragmento dentro del documento HTML, que se define a través de la etiqueta de anclaje .<a name="anchorName">...</a>.
+- Los #nameAnchor identifican un fragmento dentro del documento HTML, que se define a través de la etiqueta de anclaje .a name="anchorName">.../a.
 - Reescritura de URL para la gestión de la sesión, por ejemplo, " ...;sessionID=xxxxxx".
 
 "POST" método de petición
@@ -1154,7 +1154,7 @@ Subir archivo usando la solicitud POST multipart/form-data
 --
 -----
 
-"RFC 1867 basado en la forma de cargar archivos en HTML" se especifica un archivo que se puede cargar en el servidor mediante una petición POST de un formulario HTML. Un nuevo atributo type="file" se añadió a la etiqueta <input> del código HTML <form> para soportar la carga de archivos. Los datos de la solicitud POST de carga de archivos no es una URL codificada (en la norma application/x-www-form-urlencoded), sino que utiliza un nuevo tipo MIME multipart/form-data.
+"RFC 1867 basado en la forma de cargar archivos en HTML" se especifica un archivo que se puede cargar en el servidor mediante una petición POST de un formulario HTML. Un nuevo atributo type="file" se añadió a la etiqueta input del código HTML form para soportar la carga de archivos. Los datos de la solicitud POST de carga de archivos no es una URL codificada (en la norma application/x-www-form-urlencoded), sino que utiliza un nuevo tipo MIME multipart/form-data.
 
 **Ejemplo**
 
@@ -1179,7 +1179,7 @@ El siguiente formulario HTML puede ser utilizado para la carga de archivos:
 
 [imagen12]: https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTML_FileUploadForm.png "File Upload Form"
 
-Cuando el navegador encuentra una <input>etiqueta con el atributo type="file", se muestra un cuadro de texto y un botón "Examinar ...", para permitir al usuario elegir el archivo para ser cargado.
+Cuando el navegador encuentra una etiqueta input con el atributo type="file", se muestra un cuadro de texto y un botón "Examinar ...", para permitir al usuario elegir el archivo para ser cargado.
 
 Cuando el usuario hace clic en el botón de enviar, el navegador envía los datos del formulario y el contenido del archivo (s) seleccionado. El anterior tipo de codificación " application/x-www-form-urlencoded" es ineficiente para el envío de datos binarios y caracteres que no son ASCII. En su lugar se utiliza un nuevo tipo de medio " multipart/form-data".
 
@@ -1430,7 +1430,7 @@ Conexiones persistentes (keep-alive)
 --
 -------------------------------------
 
-En HTTP / 1.0, el servidor cierra la conexión TCP después de entregar la respuesta por defecto ( Connection: Close). Es decir, cada uno de los servicios de conexión TCP sólo hacen una petición. Esto no es eficiente en páginas HTML que contienen hipervínculos (a través de < a href="url" > la etiqueta) y otros recursos (como imágenes, scripts - ya sea local o desde un servidor remoto). Si descarga una página que contiene 5 imágenes en línea, el navegador tiene que establecer una conexión TCP 6 veces en el mismo servidor.
+En HTTP / 1.0, el servidor cierra la conexión TCP después de entregar la respuesta por defecto ( Connection: Close). Es decir, cada uno de los servicios de conexión TCP sólo hacen una petición. Esto no es eficiente en páginas HTML que contienen hipervínculos (a través de ```< a href="url" >``` la etiqueta) y otros recursos (como imágenes, scripts - ya sea local o desde un servidor remoto). Si descarga una página que contiene 5 imágenes en línea, el navegador tiene que establecer una conexión TCP 6 veces en el mismo servidor.
 
 El cliente puede negociar con el servidor y pedir al servidor no cerrar la conexión después de la entrega de la respuesta, de modo que otra petición pueda ser enviada a través de la misma conexión. Esto se conoce como conexión persistente (o conexión keep-alive). Las conexiones persistentes mejoran en gran medida la eficiencia de la red. Para HTTP / 1.0, la conexión por defecto no es persistente. Para solicitar una conexión persistente, el cliente debe incluir un encabezado de solicitud "Connection: Keep-alive" en el mensaje de petición de negociación con el servidor.
 
